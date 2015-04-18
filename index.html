@@ -1,1 +1,113 @@
-My page
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"></meta>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" language="javascript" src="js/jQuery/jquery-2.1.1.js"></script>
+    <title></title>
+   <script type="text/javascript">
+
+function moonEarth()
+ 	{
+ 	var age = document.getElementById('age').value;
+   	var output = '';
+   	var output2 = '';
+   	var output3 = '';
+   	var output4 = '';
+   	var output5 = '';
+   	var output6 = '';
+   	var output7 = '';
+    
+    output = age * 13; //moon around earth 
+    document.getElementById('outputSpan').innerHTML = Math.round(output*1000)/1000;
+   	
+   	output2 =  
+    document.getElementById('outputSpan2').innerHTML = Math.round(output2*1000)/1000;
+        
+    output3 = age * 366.242; // earth around sun  
+   	document.getElementById('outputSpan3').innerHTML = Math.round(output3*1000)/1000;
+   	
+	output4 = age * 1; // earth rotates sun  
+   	document.getElementById('outputSpan4').innerHTML = Math.round(output4*1000)/1000;
+   
+    output5 = age / 225000000; //solar system around the milky way   
+   	document.getElementById('outputSpan5').innerHTML = Math.round(output5*10000)/10000;
+     
+    output6 = age * 5840 //international space station around earth   
+   	document.getElementById('outputSpan6').innerHTML = Math.round(output6*1000)/1000;
+     
+    output7 = age * 2.3796 // solar eclipeses/year 
+   	document.getElementById('outputSpan7').innerHTML = Math.round(output7*1000)/1000;
+   	}   
+
+   </script>
+</head>
+<body>
+	<div class="splash">
+		<img src="">
+	</div>
+
+	<div class="parallax">
+
+	<div class="input"><input type="text" id="age" size="20px">
+	<input class="button" type="button" value="Calculate" onclick="moonEarth();">
+	</div>
+
+	<div id="group6" class="parallax__group">
+	<div class="parallax__layer parallax__layer--base">
+	<div class="title"></div>
+	<span class="out" id="outputSpan"></span>
+	
+	</div>
+	</div>
+
+	<div id="group6" class="parallax__group">
+	<div class="parallax__layer parallax__layer--back">	
+	<div class="title"></div>
+	<span class="out" id="outputSpan2"></span>
+	
+	</div>
+	</div>
+
+	<div id="group6" class="parallax__group">
+	<div class="parallax__layer parallax__layer--deep">
+	<div class="title"></div>
+	<span class="out" id="outputSpan3"></span>
+
+	</div>
+	</div>
+
+	<div id="group6" class="parallax__group">
+	<div class="parallax__layer parallax__layer--base">
+	<div class="title"></div>
+	<span class="out" id="outputSpan4"></span>
+	</div>
+	</div>
+
+	<div id="group6" class="parallax__group">
+	<div class="parallax__layer parallax__layer--back">
+	<div class="title"></div>
+	<span class="out" id="outputSpan5"></span>
+	</div>
+	</div>
+
+	<div id="group6" class="parallax__group">
+	<div class="parallax__layer parallax__layer--deep">
+	<div class="title"></div>
+	<span class="out" id="outputSpan6"></span>
+	</div>
+	</div>
+
+	<div id="group6" class="parallax__group">
+	<div class="parallax__layer parallax__layer--base">
+	<div class="title"></div>
+	<span class="out" id="outputSpan7"></span>
+	</div>
+	</div>
+</div><!--end parallax-->
+<script src="js/script.js"></script>
+</body>
+</html>
+
+
