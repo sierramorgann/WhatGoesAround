@@ -21,7 +21,6 @@
 	<div class="spacer"></div>
 
 	<div class="one">
-		<video onmouseover="play()" class="vid" src="img/Spaceship.mov" width="100%" height="100%">Mercury</video>
 <p class="before">
 Silently turning, these cycles create order out of the seeming chaos that is space. 
 <br>
@@ -67,7 +66,7 @@ Cycles on cycles on cycles.
 
 	<div class="three">
 	<video autoplay loop class="vid" src="img/Axis.mov" width="100%" height="100%"></video>
-	<span class="out" id="outputSpan4"></span>
+	<span class="out" id="outputSpan3"></span>
 	<p class="explain">Cycles of the Earth<br> on its Axis</p>
 	<p class="text">
 	Every day, our planet completes one full rotation around its axis. 
@@ -133,7 +132,7 @@ You can’t go here for your birthday party, but you can <a href="http://www.the
 
 	<div class="seven">
 	<video autoplay loop class="vid" src="img/Asun.mov" width="100%" height="100%"></video>
-	<span class="out" id="outputSpan3"></span>
+	<span class="out" id="outputSpan4"></span>
 	<p class="explain">Cycles of the Earth<br> Around the Sun </p>
 	<p class="text">
 		It takes one year, or 365 days if you fancy, for the Earth and its lovely little inhabitants to orbit around the sun. [Don’t worry, you’re tall, just not in the scheme of solar systems.] 
@@ -158,11 +157,11 @@ If you see the sun, don’t look into it, but say thanks.
 	<video autoplay loop class="vidp" src="img/uranus.mov" width="10%" height="100%">Uranus</video>
 	<video autoplay loop class="vidp" src="img/neptune.mov" width="10%" height="100%">Neptune</video>
 	<p class="planet"> Mercury </p>
-	<span class="small" id="outputSpan4"></span>
+	<span class="small" id="outputSpan2"></span>
 	<p class="planet1">Venus</p>
 	<span class="small1" id="outputSpantwo"></span>
 	<p class="planet2">Mars</p>
-	<span class="small3" id="outputSpan2"></span>
+	<span class="small3" id="outputSpanfour"></span>
 	<p class="planet3">Jupiter</p>
 	<span class="small4" id="outputSpanfive"></span>
 	<p class="planet4">Saturn</p>
@@ -231,23 +230,8 @@ function moonEarth()
 
 	document.getElementById('nameOut').innerHTML = named;
     
-    output4 = age * 365; // earth rotates sun  
-   	document.getElementById('outputSpan4').innerHTML = Math.round(output4*10)/10;
-
     output = age * 13; //moon around earth 
     document.getElementById('outputSpan').innerHTML = Math.round(output*10)/10;
-
-    output3 = age * 1 //earth around sun  
-   	document.getElementById('outputSpan3').innerHTML = Math.round(output3*10)/10;
-   
-    output5 = 225000000 / age; //solar system around the milky way   
-   	document.getElementById('outputSpan5').innerHTML = Math.round(output5*10)/10;
-     
-    output6 = age * 5840 //international space station around earth   
-   	document.getElementById('outputSpan6').innerHTML = Math.round(output6*10)/10;
-     
-    output7 = age * 2.3796 // solar eclipeses/year 
-   	document.getElementById('outputSpan7').innerHTML = Math.round(output7*10)/10;
 
    	output2 = age * 4.1; //how many years you've been alive on Mercury
     document.getElementById('outputSpan2').innerHTML = Math.round(output2*10)/10;
@@ -270,14 +254,14 @@ function moonEarth()
     outputeight = age * 0.006; //how many years you've been alive on Neptune
     document.getElementById('outputSpaneight').innerHTML = Math.round(outputeight*10)/10;
         
-    output3 = age * 366.242; // earth around sun  
+    output3 = age * 365; // earth around sun  
    	document.getElementById('outputSpan3').innerHTML = Math.round(output3*10)/10;
    	
 	output4 = age * 1; // earth rotates sun  
    	document.getElementById('outputSpan4').innerHTML = Math.round(output4*10)/10;
    
     output5 = age * 0; //solar system around the milky way   
-   	document.getElementById('outputSpan5').innerHTML = Math.ceil(output5);
+   	document.getElementById('outputSpan5').innerHTML = output5;
      
     output6 = age * 5840 //international space station around earth   
    	document.getElementById('outputSpan6').innerHTML = Math.round(output6*10)/10;
