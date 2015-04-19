@@ -52,6 +52,19 @@
     font-family: 'gotham_ultraregular';
   }
 
+   #name {
+    font-size: 45px;
+    margin: 0 0 2% 0;
+    font-family: 'gotham_ultraregular';
+  }
+
+  #after {
+    margin: 5% 0 0 0;
+    font-size: 24px;
+    color: white;
+    font-family: 'gotham_ultraregular';
+  }
+
   .button {
     font-size: 12px;
     margin: 0 0 0 2%;
@@ -68,20 +81,19 @@
   }
 
   .out {
-    position: relative;
-    text-align: center;
+    position: absolute;
+    top: 25%;
+    left: 8%;
     font-family: 'polya_regularregular';
-    font-size: 150px; 
-    margin: 0 0 0 5%;
-    height: 100%;
-    width: 100%;
+    font-size: 250px; 
   } 
 
   .text {
     font-size: 350%;
     font-family: 'gotham_ultraregular';
-    text-align: right;
-    margin: 0 5% 20% 0;
+    text-align: left;
+    margin: 40% 0 20% 5%;
+    color: white;
   }
 
 .spacer {

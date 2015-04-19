@@ -1,3 +1,22 @@
+<!--
+Our universe is a beautiful orchestra of cycles. 
+Silently turning, these cycles create order out of the seeming chaos that is space. 
+We can see some of them in our every day lives, others we experience but may not be aware of, and even others seem unnoticeable. 
+
+Water, carbon, and nitrogen cycle through Earth’s landscapes, paving the way for even more cycles. 
+Business cycles, school cycles, sleep cycles, relationship cycles, on and on, all around us. It’s crazy. 
+
+Now, step back. 
+
+Our planet rotates around its own axis. Our moon, Luna, cycles around us down here on Earth. The Earth, and our seven other planet brethren [sorry, Pluto], cycle around the Sun. And our solar system, along with the billions of others in our galaxy, cycle around the Milky Way Galaxy like ants on a giant pinwheel. 
+Cycles on cycles on cycles. 
+
+That’s a lot to wrap your head around. Well yeah, it’s the outerspace. Let’s crunch it down into something more bitesize and see how you fit into all of this. 
+(How old are you?)  (What's your name?)
+Well, Sara, 
+In your lifetime, you’ve been here for . . .
+
+-->
 <!DOCTYPE html>
 <head>
 	<meta charset="utf-8"></meta>
@@ -24,9 +43,18 @@
 <div class="spacer"></div>
 
 <div class="two">
-	<div id="inbox">	
-	<input type="text" id="age" size="13px" value="Your Age Here">
+	<div id="bodyText">
+
+	</div>
+	<div id="inbox">
+	<	
+	<input type="text" id="name" size="15px" value="Your Name">	
+	<br>
+	<input type="text" id="age" size="10px" value="&Age">
 	<input class="button" type="button" value="Calculate" onclick="moonEarth();">
+	<p id="after">Well, <span id="nameOut"></span>, <br>
+	In your lifetime, you’ve been here for . . .
+	</p>
 	</div>
 </div>
 
@@ -39,8 +67,8 @@
 
 	<div class="spacer"></div>
 
-	<div class="four">	
-	<span class="out" id="outputSpan2"></span>
+	<div class="four">
+	<span class="out" id="outputSpan2"></span>	
 	<p class="text"> here is the placeholder text </p>
 	</div>
 
@@ -127,7 +155,7 @@
    <script type="text/javascript">
 
 function moonEarth()
- 	{
+ 	{	
  	var age = document.getElementById('age').value;
    	var output = '';
    	var output2 = '';
@@ -136,6 +164,9 @@ function moonEarth()
    	var output5 = '';
    	var output6 = '';
    	var output7 = '';
+   	var named = document.getElementById('name').value;
+
+	document.getElementById('nameOut').innerHTML = named;
     
     output = age * 13; //moon around earth 
     document.getElementById('outputSpan').innerHTML = Math.round(output*1000)/1000;
