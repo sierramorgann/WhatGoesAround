@@ -1,20 +1,5 @@
 <!--
-Our universe is a beautiful orchestra of cycles. 
-Silently turning, these cycles create order out of the seeming chaos that is space. 
-We can see some of them in our every day lives, others we experience but may not be aware of, and even others seem unnoticeable. 
 
-Water, carbon, and nitrogen cycle through Earth’s landscapes, paving the way for even more cycles. 
-Business cycles, school cycles, sleep cycles, relationship cycles, on and on, all around us. It’s crazy. 
-
-Now, step back. 
-
-Our planet rotates around its own axis. Our moon, Luna, cycles around us down here on Earth. The Earth, and our seven other planet brethren [sorry, Pluto], cycle around the Sun. And our solar system, along with the billions of others in our galaxy, cycle around the Milky Way Galaxy like ants on a giant pinwheel. 
-Cycles on cycles on cycles. 
-
-That’s a lot to wrap your head around. Well yeah, it’s the outerspace. Let’s crunch it down into something more bitesize and see how you fit into all of this. 
-(How old are you?)  (What's your name?)
-Well, Sara, 
-In your lifetime, you’ve been here for . . .
 
 -->
 <!DOCTYPE html>
@@ -27,127 +12,165 @@ In your lifetime, you’ve been here for . . .
     <title></title>
 </head>
 <body>
+	<div class="splash">
+	<div class="top">	
+	<p id="topTitle"> Our Universe is a Beautiful Orchestra of Cycles...</p>
+	</div>
+	</div>
+
 	<div class="container">
 
 	<div class="spacer"></div>
 
 	<div class="one">
-	<div class="splash">
-	<div class="top">	
-	<p id="topTitle"> Fucking Space </p>
-	<p id="sub-head"> and cool things about cycles </p>
-	</div>
+	<p class="before">
+Silently turning, these cycles create order out of the seeming chaos that is space. 
+<br>
+<br>
+We can see some of them in our every day lives, others we experience but may not be aware of, and even others seem unnoticeable. 
+<br>
+<br>
+Water, carbon, and nitrogen cycle through Earth’s landscapes, paving the way for even more cycles. 
+<br>
+<br>
+Business cycles, school cycles, sleep cycles, relationship cycles, on and on, all around us. It’s crazy. 
+<br>
+<br>
+Now, step back. 
+<br>
+<br>
+Our planet rotates around its own axis. Our moon, Luna, cycles around us down here on Earth. The Earth, and our seven other planet brethren [sorry, Pluto], cycle around the Sun. And our solar system, along with the billions of others in our galaxy, cycle around the Milky Way Galaxy like ants on a giant pinwheel. 
+<br>
+<br>
+Cycles on cycles on cycles.
+</p>
+
+</div>
 </div>
 </div>
 
 <div class="spacer"></div>
 
 <div class="two">
-	<div id="bodyText">
-
-	</div>
-	<div id="inbox">
-	<	
-	<input type="text" id="name" size="15px" value="Your Name">	
+	<p class="after">That’s a lot to wrap your head around. Well yeah, it’s outerspace. Let’s crunch it down into something more bitesize and see how you fit into all of this.</p>
+	<input type="text" id="name" size="20px" value="What's Your Name">
 	<br>
-	<input type="text" id="age" size="10px" value="&Age">
+	<input type="text" id="age" size="17px" value="How Old Are You?">
 	<input class="button" type="button" value="Calculate" onclick="moonEarth();">
-	<p id="after">Well, <span id="nameOut"></span>, <br>
+	<p class="after">Sup, <span id="nameOut"></span><br>
 	In your lifetime, you’ve been here for . . .
 	</p>
-	</div>
+	
 </div>
 
 <div class="spacer"></div>
 
 	<div class="three">
-	<span class="out" id="outputSpan"></span>
-	<p class="text"> here is the placeholder text </p>
+	<span class="out" id="output4"></span>
+	<p class="explain">Cycles of the Earth on it's Axis</p>
+	<p class="text">Whats a light year? It's the same as a regular year, but with less calories.
+	<br>
+	<br>
+	Every day, our planet completes one full rotation around its axis. 
+	<br>
+	<br>
+If you’re on the beach near the equator, you’d be moving close to 1000 miles per hour and traveling nearly 24,900 miles each day. 
+<br>
+<br>
+Thanks to gravity, we move with the Earth and don’t notice it’s rotation in everyday life.   	
+</p>
 	</div>
 
 	<div class="spacer"></div>
 
 	<div class="four">
-	<span class="out" id="outputSpan2"></span>	
-	<p class="text"> here is the placeholder text </p>
+	<span class="out" id="outputSpan"></span>	
+	<p class="explain"> Lunar cycles</p>
+	<p class="text">
+		Our moon, scientists call her Luna, makes her full orbit around the planet about every 27 days. 
+		<br>
+		<br>
+		Fine, every 27 days, 7 hours, 43 minutes, and 11.6 seconds.
+ 		<br>
+		<br>
+		Because Luna spins at the same speed she orbits Earth, and opposite to the Earth’s rotation, we have always seen the same face of the moon. Talk about a one-sided personality.
+	</p>
 	</div>
 
 	<div class="spacer"></div>
 
 	<div class="five">
-	<span class="out" id="outputSpantwo"></span>
-	<p class="text"> here is the placeholder text </p>
+	<video autoplay loop class="vid" src="img/iss.mov" width="100%" height="100%"></video>	
+	<span class="out" id="output6"></span>
+	<p class="explain"> Cycles of the International Space Station</p>
+	<p class="text">
+		Traveling a whopping 5 miles per second, the International Space Station orbits the Earth every 90 minutes.  
+		<br>
+		<br>  
+You can’t go here for your birthday party, but you can <a href="http://www.theplanetstoday.com/">sign up</a> for a text or email alert telling you when, and where, you can spot it moving across the sky. [You won’t even need a telescope!]
+	</p>
 	</div>
 
 	<div class="spacer"></div>
 
 	<div class="six">
-	<span class="out" id="outputSpanfour"></span>
-	<p class="text"> here is the placeholder text </p>
+	<span class="out" id="output7"></span>
+	<p class="explain">Solar Eclipses</p>
+	<p class="text">
+	Syzygy.
+	<br>
+	<br> 
+	What? 
+	<br>
+	<br> 
+	Syzygy, it’s when the Sun and Moon align from Earth’s perspective. In the case of a solar eclipse, the Moon passes between the Earth and Sun. 
+	<br>
+	<br> 
+	There can be at least 2, and up to 5, solar eclipses each year. No more than 2 can be total eclipses, sorry. 
+	</p>
 	</div>
 
 	<div class="spacer"></div>
 
 	<div class="seven">
-	<span class="out" id="outputSpanfive"></span>
-	<p class="text"> here is the placeholder text </p>
+	<span class="out" id="output3"></span>
+	<p class="explain">Cycles of the Earth Around the Sun </p>
+	<p class="text">
+		It takes one year, or 365 days if you fancy, for the Earth and us lovely little inhabitants to orbit around the sun. [Don’t worry, you’re tall, just not in the scheme of solar systems.] 
+		<br>
+	<br>
+In order to take it’s close to 600 million mile orbital path in a year, the Earth travels 66,000 miles per hour. Never givin’ up. If you see the sun don’t look into it, but say thanks. 
+
+
+	</p>
 	</div>
 
 	<div class="spacer"></div>
 
 	<div class="eight">
-	<span class="out" id="outputSpansix"></span>
-	<p class="text"> here is the placeholder text </p>
+	<span class="out" id="outputSpan..."></span>
+	<p class="explain"> Years on _______</p>
+	<p class="text">
+	If you don’t wanna grow up, going to a different planet will change your numeric age but won’t help with any of the hard stuff. 
+	<br>
+	<br>
+One year is measured by the time it takes that planet to orbit the Sun. Because of the Sun’s gravitational pull, planets closer to the Sun move faster and have shorter years than planets further away.	
+	</p>	
 	</div>
 
 	<div class="spacer"></div>
 
 	<div class="nine">
-	<span class="out" id="outputSpanseven"></span>
-	<p class="text"> here is the placeholder text </p>
+	<span class="out" id="output5"></span>
+	<p class="explain"> Galactic Cycles </p>
+	<p class="text">
+	Speaking of cycles, the entire Milky Way Galaxy is spinning. Think: big pinwheel. 
+	<br>
+	<br>
+It takes the Sun about 225 million years to go around the galaxy once, no small feat. In galactic years, the Sun and earth are about 20, almost of legal drinking age. Yet, in all of recorded human history, we’ve hardly moved in our cycle around the galaxy.	
+	</p>	
 	</div>
 
-	<div class="spacer"></div>
-
-	<div class="ten">
-	<span class="out" id="outputSpaneight"></span>
-	<p class="text"> here is the placeholder text </p>
-	</div>
-
-	<div class="spacer"></div>
-
-	<div class="eleven">
-	<span class="out" id="outputSpan3"></span>
-	<p class="text"> here is the placeholder text </p>
-	</div>
-
-	<div class="spacer"></div>
-
-	<div class="twelve">
-	<span class="out" id="outputSpan4"></span>
-	<p class="text"> here is the placeholder text </p>
-	</div>
-
-	<div class="spacer"></div>
-
-	<div class="thirteen">
-	<span class="out" id="outputSpan5"></span>
-	<p class="text"> here is the placeholder text </p>
-	</div>
-
-	<div class="spacer"></div>
-
-	<div class="fourteen">
-	<span class="out" id="outputSpan6"></span>
-	<p class="text"> here is the placeholder text </p>
-	</div>
-
-	<div class="spacer"></div>
-
-	<div class="fifteen">
-	<span class="out" id="outputSpan7"></span>
-	<p class="text"> here is the placeholder text </p>
-	</div>
 
 </div><!--end container-->
 </div>
@@ -164,6 +187,12 @@ function moonEarth()
    	var output5 = '';
    	var output6 = '';
    	var output7 = '';
+   	var outputtwo = '';
+   	var
+   	var
+   	var
+   	var
+   	var
    	var named = document.getElementById('name').value;
 
 	document.getElementById('nameOut').innerHTML = named;
@@ -230,18 +259,6 @@ function moonEarth()
     var d8orgtop = d8.position().top;
     var d9 = $('.nine');
     var d9orgtop = d9.position().top;
-    var d10 = $('.ten');
-    var d10orgtop = d10.position().top;
-    var d11 = $('.eleven');
-    var d11orgtop = d11.position().top;
-    var d12 = $('.twelve');
-    var d12orgtop = d12.position().top;
-    var d13 = $('.thirteen');
-    var d13orgtop = d13.position().top;
-    var d14 = $('.fourteen');
-    var d14orgtop = d14.position().top;
-    var d15 = $('.fifteen');
-    var d15orgtop = d15.position().top;
     
     /* respond to the scroll event */
     $(window).scroll(function(){
@@ -294,36 +311,7 @@ function moonEarth()
         } else {
             d9.removeClass('latched');
         }
-        if (st >= d10orgtop) {
-            d10.addClass('latched');
-        } else {
-            d10.removeClass('latched');
-        }
-        if (st >= d11orgtop) {
-            d11.addClass('latched');
-        } else {
-            d11.removeClass('latched');
-        }
-        if (st >= d12orgtop) {
-            d12.addClass('latched');
-        } else {
-            d12.removeClass('latched');
-        }
-        if (st >= d13orgtop) {
-            d13.addClass('latched');
-        } else {
-            d13.removeClass('latched');
-        }
-        if (st >= d14orgtop) {
-            d14.addClass('latched');
-        } else {
-            d14.removeClass('latched');
-        }
-        if (st >= d15orgtop) {
-            d15.addClass('latched');
-        } else {
-            d15.removeClass('latched');
-        }
+    
 
     });
 
