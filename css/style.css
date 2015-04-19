@@ -99,10 +99,101 @@
   .out {
     z-index: 9999;
     position: absolute;
-    top: 25%;
-    left: 8%;
+    top: 5%;
+    left: 5%;
     font-family: 'polya_regularregular';
     font-size: 250px; 
+    color: white;
+  } 
+
+  .small {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-family: 'polya_regularregular';
+    font-size: 45px; 
+    color: white;
+  }
+
+  .small1 {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    font-family: 'polya_regularregular';
+    font-size: 45px; 
+    color: white;
+  }
+
+  .small2 {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    font-family: 'polya_regularregular';
+    font-size: 45px; 
+    color: white;
+  }
+
+  .small3 {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    font-family: 'polya_regularregular';
+    font-size: 45px; 
+    color: white;
+  }
+
+  .small4 {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    font-family: 'polya_regularregular';
+    font-size: 45px; 
+    color: white;
+  }
+
+  .small5 {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 55%;
+    font-family: 'polya_regularregular';
+    font-size: 45px; 
+    color: white;
+  }
+
+  .small6 {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 65%;
+    font-family: 'polya_regularregular';
+    font-size: 45px; 
+    color: white;
+  }
+
+  .small7 {
+    z-index: 9999;
+    position: absolute;
+    top: 10%;
+    left: 75%;
+    font-family: 'polya_regularregular';
+    font-size: 45px; 
+    color: white;
+  }
+
+    .o {
+    z-index: 9999;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-family: 'polya_regularregular';
+    font-size: 250px; 
+    color: black;
   } 
 
   .text {
@@ -111,7 +202,7 @@
     font-size: 20px;
     font-family: 'polya_regularregular';
     text-align: left;
-    margin: 25% 5% 0 5%;
+    margin: 35% 35% 0 5%;
     color: white;
   }
 
@@ -121,14 +212,34 @@
   }
 
   .explain {
-     position: absolute;
+    position: absolute;
     z-index: 100;
-    font-size: 65px;
+    font-size: 50px;
     font-family: 'gotham_ultraregular';
     text-align: left;
-    margin: 3% 5% 5% 5%;
+    margin: 23% 5% 5% 5%;
     color: white;
   }
+
+.e {
+    position: absolute;
+    z-index: 100;
+    font-size: 50px;
+    font-family: 'gotham_ultraregular';
+    text-align: left;
+    margin: 25% 5% 5% 5%;
+    color: black;
+  }
+
+.t {
+    position: absolute;
+    z-index: 100;
+    font-size: 20px;
+    font-family: 'polya_regularregular';
+    text-align: left;
+    margin: 40% 35% 0 5%;
+    color: black;
+}
 
 .spacer {
     width: 0;
@@ -146,7 +257,7 @@
 }
 
 .two { 
-  background: rgba(64,64,34,1); 
+  background: rgba(20,23,26,1);
   width: 100%; 
   height: 700px; 
   position: relative; 
@@ -154,14 +265,14 @@
 }
 
 .three { 
-  background: rgba(201,202,0,1); 
+  background: rgba(43,88,89,1); 
   width: 100%; 
   height: 700px; 
   position: relative; 
   float: left; 
 }
 .four { 
-  background: blue; 
+  background: rgba(20,23,26,1); 
   width: 100%; 
   height: 700px; 
   position: relative; 
@@ -175,34 +286,33 @@
   float: left; 
 }
 .six { 
-  background: red; 
+  background: rgba(20,23,26,1); 
   width: 100%; 
   height: 700px; 
   position: relative; 
   float: left; 
 }
 .seven { 
-  background: orange; 
+  background: rgba(20,23,26,1); 
   width: 100%; 
   height: 700px; 
   position: relative; 
   float: left; 
 }
 .eight { 
-  background: blue; 
+  background: rgba(43,88,89,1); 
   width: 100%; 
   height: 700px; 
   position: relative; 
   float: left; 
 }
 .nine { 
-  background: orange; 
+  background: rgba(237,243,164,1); 
   width: 100%; 
   height: 700px; 
   position: relative; 
   float: left; 
 }
-
 
 .latched { 
   position: fixed; 
