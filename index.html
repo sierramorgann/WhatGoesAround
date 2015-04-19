@@ -9,13 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" language="javascript" src="js/jQuery/jquery-2.1.1.js"></script>
-    <title></title>
+    <title>What Goes Around</title>
 </head>
 <body>
-	<div class="splash">
+	
 	<div class="top">	
 	<p id="topTitle"> The Universe is a Beautiful Orchestra of Cycles...</p>
-	</div>
 	</div>
 
 	<div class="container">
@@ -23,7 +22,7 @@
 	<div class="spacer"></div>
 
 	<div class="one">
-	<p class="before">
+<p class="before">
 Silently turning, these cycles create order out of the seeming chaos that is space. 
 <br>
 <br>
@@ -52,12 +51,13 @@ Cycles on cycles on cycles.
 <div class="spacer"></div>
 
 <div class="two">
+	<video autoplay loop class="vid" src="img/Meet.mov" width="100%" height="80%"></video>
 	<p class="after">That’s a lot to wrap your head around. Well yeah, it’s outerspace. Let’s crunch it down into something more bitesize and see how you fit into all of this.</p>
 	<input type="text" id="name" size="20px" value="What's Your Name">
 	<br>
 	<input type="text" id="age" size="17px" value="How Old Are You?">
 	<input class="button" type="button" value="Calculate" onclick="moonEarth();">
-	<p class="after">Sup, <span id="nameOut"></span><br>
+	<p class="after2">Sup, <span id="nameOut"></span><br>
 	In your lifetime, you’ve been here for . . .
 	</p>
 	
@@ -83,10 +83,10 @@ Thanks to gravity, we move with the Earth and don’t notice it’s rotation in 
 	<div class="spacer"></div>
 
 	<div class="four">
-	<video autoplay loop class="vid" src="img/Moon.mov" width="100%" height="100%"></video>
+	<video autoplay loop class="vid1" src="img/Moon.mov" width="100%" height="100%"></video>
 	<span class="out" id="outputSpan"></span>	
-	<p class="explain"> Lunar cycles</p>
-	<p class="text">
+	<p class="ext"> Lunar cycles</p>
+	<p class="tet">
 		Our moon, scientists call her Luna, makes her full orbit around the planet about every 27 days. 
 		<br>
 		<br>
@@ -107,23 +107,22 @@ Thanks to gravity, we move with the Earth and don’t notice it’s rotation in 
 		Traveling a whopping 5 miles per second, the International Space Station orbits the Earth every 90 minutes.  
 		<br>
 		<br>  
-You can’t go here for your birthday party, but you can <a href="http://www.theplanetstoday.com/">sign up</a> for a text or email alert telling you when, and where, you can spot it moving across the sky. [You won’t even need a telescope!]
+You can’t go here for your birthday party, but you can <a href="http://www.theplanetstoday.com/" target="blank">sign up</a> for a text or email alert telling you when, and where, you can spot it moving across the sky. [You won’t even need a telescope!]
 	</p>
 	</div>
 
 	<div class="spacer"></div>
 
 	<div class="six">
-	<video autoplay loop class="vid" src="img/Eclipse.mov" width="100%" height="100%"></video>
+	<video autoplay loop class="vid3" src="img/Eclipse.mov" width="100%" height="100%"></video>
 	<span class="out" id="outputSpan7"></span>
-	<p class="explain">Solar Eclipses</p>
-	<p class="text">
+	<p class="ext">Solar Eclipses</p>
+	<p class="tet">
 	Syzygy.
 	<br>
-	<br> 
 	What? 
 	<br>
-	<br> 
+	<br>
 	Syzygy, it’s when the Sun and Moon align from the Earth’s perspective. In the case of a solar eclipse, the Moon passes between the Earth and Sun. 
 	<br>
 	<br> 
@@ -150,17 +149,29 @@ In order to take its close to 600 million mile orbital path in a year, the Earth
 	<div class="spacer"></div>
 
 	<div class="eight">
-	<!--<video autoplay loop class="vid" src="img/.mov" width="100%" height="100%"></video>-->
+	<video autoplay loop class="vidp" src="img/mercury.mov" width="10%" height="100%">Mercury</video>
+	<video autoplay loop class="vidp" src="img/venus.mov" width="10%" height="100%">Venus</video>
+	<video autoplay loop class="vidp" src="img/mars.mov" width="10%" height="100%">Mars</video>
+	<video autoplay loop class="vidp" src="img/jupiter.mov" width="10%" height="100%">Jupiter</video>
+	<video autoplay loop class="vidp" src="img/saturn.mov" width="10%" height="100%">Saturn</video>
+	<video autoplay loop class="vidp" src="img/uranus.mov" width="10%" height="100%">Uranus</video>
+	<video autoplay loop class="vidp" src="img/neptune.mov" width="10%" height="100%">Neptune</video>
+	<p class="planet"> Mercury </p>
 	<span class="small" id="outputSpan2"></span>
+	<p class="planet1">Venus</p>
 	<span class="small1" id="outputSpantwo"></span>
-	<span class="small2" id="outputSpanthree"></span>
+	<p class="planet2">Mars</p>
 	<span class="small3" id="outputSpanfour"></span>
+	<p class="planet3">Jupiter</p>
 	<span class="small4" id="outputSpanfive"></span>
+	<p class="planet4">Saturn</p>
 	<span class="small5" id="outputSpansix"></span>
+	<p class="planet5">Uranus</p>
 	<span class="small6" id="outputSpanseven"></span>
+	<p class="planet6">Neptune</p>
 	<span class="small7" id="outputSpaneight"></span>
-	<p class="explain"> Years on _______</p>
-	<p class="text">
+	<p class="ex"> Years on _______</p>
+	<p class="te">
 	If you don’t wanna grow up, going to a different planet will change your numeric age but won’t help with any of the hard stuff. 
 	<br>
 	<br>
@@ -181,10 +192,12 @@ One year is measured by the time it takes that planet to orbit the Sun. Because 
 It takes the Sun about 225 million years to go around the galaxy once, no small feat. In galactic years, the Sun and earth are about 20, almost of legal drinking age. Yet, in all of recorded human history, we’ve hardly moved in our cycle around the galaxy.	
 	</p>	
 	</div>
+
+	</div><!--end container-->
 <p>The universe has been around a long time and isn't going anywhere, well, it is; it's always expanding. But you get the point. You are the captain of your own spaceship.</p>
 
-</div><!--end container-->
-</div>
+
+
 <script src="js/script.js"></script>
    <script type="text/javascript">
 
