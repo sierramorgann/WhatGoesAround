@@ -53,9 +53,9 @@ Cycles on cycles on cycles.
 <div class="two">
 	<video autoplay loop class="vid" src="img/Meet.mov" width="100%" height="80%"></video>
 	<p class="after">That’s a lot to wrap your head around. Well yeah, it’s outerspace. Let’s crunch it down into something more bitesize and see how you fit into all of this.</p>
-	<input type="text" id="name" size="20px" value="What's Your Name">
+	<input type="text" id="name" size="20px" placeholder="What's Your Name?">
 	<br>
-	<input type="text" id="age" size="17px" value="How Old Are You?">
+	<input type="text" id="age" size="17px" placeholder="How Old Are You?">
 	<input class="button" type="button" value="Calculate" onclick="moonEarth();">
 	<p class="after2">Sup, <span id="nameOut"></span><br>
 	In your lifetime, you’ve been here for . . .
@@ -102,7 +102,7 @@ Thanks to gravity, we move with the Earth and don’t notice it’s rotation in 
 	<div class="five">
 	<video autoplay loop class="vid" src="img/iss.mov" width="100%" height="100%"></video>	
 	<span class="out" id="outputSpan6"></span>
-	<p class="explain"> Cycles of the International<br> Space Station</p>
+	<p class="explain"> Cycles of the Intl.<br> Space Station</p>
 	<p class="text">
 		Traveling a whopping 5 miles per second, the International Space Station orbits the Earth every 90 minutes.  
 		<br>
@@ -228,17 +228,17 @@ function moonEarth()
 
 	document.getElementById('nameOut').innerHTML = named;
     
-    output4 = age * 1; // earth rotates sun  
+    output4 = age * 366.5; // earth rotates sun  
    	document.getElementById('outputSpan4').innerHTML = Math.round(output4*10)/10;
 
     output = age * 13; //moon around earth 
     document.getElementById('outputSpan').innerHTML = Math.round(output*10)/10;
 
-    output3 = age * 366.242; //earth around sun  
+    output3 = age * 1; //earth around sun  
    	document.getElementById('outputSpan3').innerHTML = Math.round(output3*10)/10;
    
     output5 = 225000000 / age; //solar system around the milky way   
-   	document.getElementById('outputSpan5').innerHTML = output5;
+   	document.getElementById('outputSpan5').innerHTML = Math.round(output5*10)/10;
      
     output6 = age * 5840 //international space station around earth   
    	document.getElementById('outputSpan6').innerHTML = Math.round(output6*10)/10;
