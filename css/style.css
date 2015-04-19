@@ -34,19 +34,15 @@
   #topTitle {
     font-family: 'Conv_Brandon_med';
     font-size: 80px;
-    margin: 20% 5% 0 5%;
+    margin: 10% 5% 0 5%;
     text-align: center;
     color: white;
   }
 
   .top {
-    padding: 5% 0 0 0; 
-    height: 700px;
-    display: block;
-    background: -webkit-linear-gradient(rgba(64,64,64,1), black); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(rgba(64,64,64,1), black); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(rgba(64,64,64,1), black); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(rgba(64,64,64,1), black); /* Standard syntax */ 
+    position: absolute;
+    top: 0;
+    padding: 0 0 0 0; 
     font-family: 'Conv_Brandon_med';
     color: rgba(64,64,64,0.6);
 
@@ -338,9 +334,21 @@
     color: white;
   }
 
+  #scroll {
+    position: absolute;
+    z-index: 9999;
+    left: 46.5%;
+    top: 135%;
+  }
+
   .vid {
     float: left;
     margin: 10% 0 0 0;
+  }
+
+  .video {
+    float: left;
+    margin: 0 0 0 0;
   }
 
   .vid1 {
