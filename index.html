@@ -11,9 +11,21 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <script type="text/javascript" language="javascript" src="js/jQuery/jquery-2.1.4.min.js"></script>
     <title>What Goes Around</title>
+    <style>
+		body{
+			padding: 0;
+			margin: 0;
+			background-color: rgb(34,34,34);
+		}
+		#canvas {
+			height: 550px;
+			width: 100%;
+		}
+	</style>	
 </head>
 <body>
-	<video autoplay loop class="video" src="img/Stars.mov" width="100%" height="200%"></video>
+	<!-- <video autoplay loop class="video" src="img/Stars.mov" width="100%" height="200%"> </video> -->
+	<canvas id="canvas"></canvas>
 	<div class="top">	
 		<p id="topTitle"> The Universe is a Beautiful Orchestra of Cycles...</p>
 	</div>
@@ -204,159 +216,281 @@ It takes the Sun about 225 million years to go around the galaxy once, no small 
 	<span class='st_facebook' displayText=''></span>
 	<span class='st_twitter' displayText=''></span> 
 </div> <!-- end share -->
-</div>
+<!-- </div> -->
 </div><!--end container-->
 <div id="browserWarning"><p> Please View in Chrome or Safari</p></div>
-<script src="js/script.js"></script>
+    <script type="text/javascript">
+		var maxParticles = 20000,
+		  particleSize = 1,
+		  emissionRate = 20,
+		  objectSize = 3; // drawSize of emitter/field
+		var canvas = document.querySelector('canvas');
+		var ctx = canvas.getContext('2d');
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		function Particle(point, velocity, acceleration) {
+		  this.position = point || new Vector(0, 0);
+		  this.velocity = velocity || new Vector(0, 0);
+		  this.acceleration = acceleration || new Vector(0, 0);
+		}
+		Particle.prototype.move = function () {
+		  this.velocity.add(this.acceleration);
+		  this.position.add(this.velocity);
+		};
+		function Vector(x, y) {
+		  this.x = x || 0;
+		  this.y = y || 0;
+		}
+		Vector.prototype.add = function(vector) {
+		  this.x += vector.x;
+		  this.y += vector.y;
+		}
+		Vector.prototype.getMagnitude = function () {
+		  return Math.sqrt(this.x * this.x + this.y * this.y);
+		};
+		Vector.prototype.getAngle = function () {
+		  return Math.atan2(this.y,this.x);
+		};
+		Vector.fromAngle = function (angle, magnitude) {
+		  return new Vector(magnitude * Math.cos(angle), magnitude * Math.sin(angle));
+		};
+		function Emitter(point, velocity, spread) {
+		  this.position = point; // Vector
+		  this.velocity = velocity; // Vector
+		  this.spread = spread || Math.PI / 32; // possible angles = 
+		}
+		Emitter.prototype.emitParticle = function() {
+		  // Use an angle randomized over the spread so we have more of a "spray"
+		  var angle = this.velocity.getAngle() + this.spread - (Math.random() * this.spread * 80);
+		  // The magnitude of the emitter's velocity
+		  var magnitude = this.velocity.getMagnitude();
+		  // The emitter's position
+		  var position = new Vector(this.position.x, this.position.y);
+		  // New velocity based off of the calculated angle and magnitude
+		  var velocity = Vector.fromAngle(angle, magnitude);
+		  // return our new Particle!
+		  return new Particle(position,velocity);
+		};
+		function addNewParticles() {
+		  // if we're at our max, stop emitting.
+		  if (particles.length > maxParticles) 
+		  	return;
+		  // for each emitter
+		  for (var i = 0; i < emitters.length; i++) {
+		    // emit [emissionRate] particles and store them in our particles array
+		    for (var j = 0; j < emissionRate; j++) {
+		      particles.push(emitters[i].emitParticle());
+		    }
+		  }
+		}
+		function plotParticles(boundsX, boundsY) {
+		  // a new array to hold particles within our bounds
+		  var currentParticles = [];
+		  for (var i = 0; i < particles.length; i++) {
+		    var particle = particles[i];
+		    var pos = particle.position;
+		    // If we're out of bounds, drop this particle and move on to the next
+		    if (pos.x < 0 || pos.x > boundsX || pos.y < 0 || pos.y > boundsY) continue;
+		    // Update velocities and accelerations to account for the fields
+		    //particle.submitToFields(fields);
+		    // Move our particles
+		    particle.move();
+		    // Add this particle to the list of current particles
+		    currentParticles.push(particle);
+		  }
+		  // Update our global particles reference
+		  particles = currentParticles;
+		}
+		function drawParticles() {
+		  ctx.fillStyle = 'rgb(255,255,255)';
+		  for (var i = 0; i < particles.length; i++) {
+		    var position = particles[i].position;
+		    ctx.fillRect(position.x, position.y, particleSize, particleSize);
+		  }
+		}
+		var particles = []; 
+		var mouse = {};
+		var midX = canvas.width / 2;
+		var midY = canvas.height / 2; 
+		var emitters = [new Emitter(new Vector(midX - 150, midY), Vector.fromAngle(0, 2))];
+		function loop() {
+		  clear();
+		  update();
+		  draw();
+		  queue();
+		}
+		function clear() {
+		  ctx.clearRect(0, 0, canvas.width, canvas.height);
+		}
+		function update() {
+		  addNewParticles();
+		  plotParticles(canvas.width, canvas.height);
+		}
+		function draw() {
+		  drawParticles();
+		}
+		function queue() {
+		  window.requestAnimationFrame(loop);
+		}
+		loop();
+		// document.onmousemove = function(e) {
+		//   console.log(e)
+		//   if (event.pageY < 200 & event.pageX < 200) {
+		//     queue();
+		//   }
+		//   else{
+		//     // do nothing
+		//   }
+		// }
+		// function clicked() {
+		//   location.reload();
+		// }
+	</script>
    <script type="text/javascript">
 
-function moonEarth()
- 	{	
- 	var age = document.getElementById('age').value;
-   	var output = '';
-   	var output2 = '';
-   	var output3 = '';
-   	var output4 = '';
-   	var output5 = '';
-   	var output6 = '';
-   	var output7 = '';
-   	var outputtwo = '';
-   	var outputthree = '';
-   	var outputfour = '';
-   	var outputfive = '';
-   	var outputsix = '';
-   	var outputseven = '';
-   	var outputeight = '';
-   	var named = document.getElementById('name').value;
+	function moonEarth()
+	 	{	
+	 	var age = document.getElementById('age').value;
+	   	var output = '';
+	   	var output2 = '';
+	   	var output3 = '';
+	   	var output4 = '';
+	   	var output5 = '';
+	   	var output6 = '';
+	   	var output7 = '';
+	   	var outputtwo = '';
+	   	var outputthree = '';
+	   	var outputfour = '';
+	   	var outputfive = '';
+	   	var outputsix = '';
+	   	var outputseven = '';
+	   	var outputeight = '';
+	   	var named = document.getElementById('name').value;
 
-	document.getElementById('nameOut').innerHTML = named;
-    
-    output = age * 13; //moon around earth 
-    document.getElementById('outputSpan').innerHTML = Math.round(output*10)/10;
+		document.getElementById('nameOut').innerHTML = named;
+	    
+	    output = age * 13; //moon around earth 
+	    document.getElementById('outputSpan').innerHTML = Math.round(output*10)/10;
 
-   	output2 = age * 4.1; //how many years you've been alive on Mercury
-    document.getElementById('outputSpan2').innerHTML = Math.round(output2*10)/10;
+	   	output2 = age * 4.1; //how many years you've been alive on Mercury
+	    document.getElementById('outputSpan2').innerHTML = Math.round(output2*10)/10;
 
-    outputtwo = age * 1.6; //how many years you've been alive on Venus
-    document.getElementById('outputSpantwo').innerHTML = Math.round(outputtwo*10)/10;
+	    outputtwo = age * 1.6; //how many years you've been alive on Venus
+	    document.getElementById('outputSpantwo').innerHTML = Math.round(outputtwo*10)/10;
 
-    outputfour = age * 0.5; //how many years you've been alive on Mars
-    document.getElementById('outputSpanfour').innerHTML = Math.round(outputfour*10)/10;
+	    outputfour = age * 0.5; //how many years you've been alive on Mars
+	    document.getElementById('outputSpanfour').innerHTML = Math.round(outputfour*10)/10;
 
-    outputfive = age * 0.1; //how many years you've been alive on Jupiter
-    document.getElementById('outputSpanfive').innerHTML = Math.round(outputfive*10)/10;
+	    outputfive = age * 0.1; //how many years you've been alive on Jupiter
+	    document.getElementById('outputSpanfive').innerHTML = Math.round(outputfive*10)/10;
 
-    outputsix = age * 0.03; //how many years you've been alive on Saturn
-    document.getElementById('outputSpansix').innerHTML = Math.round(outputsix*10)/10;
+	    outputsix = age * 0.03; //how many years you've been alive on Saturn
+	    document.getElementById('outputSpansix').innerHTML = Math.round(outputsix*10)/10;
 
-    outputseven = age * 0.01; //how many years you've been alive on Uranus
-    document.getElementById('outputSpanseven').innerHTML = Math.round(outputseven*10)/10;
+	    outputseven = age * 0.01; //how many years you've been alive on Uranus
+	    document.getElementById('outputSpanseven').innerHTML = Math.round(outputseven*10)/10;
 
-    outputeight = age * 0.006; //how many years you've been alive on Neptune
-    document.getElementById('outputSpaneight').innerHTML = Math.round(outputeight*10)/10;
-        
-    output3 = age * 365; // earth around sun  
-   	document.getElementById('outputSpan3').innerHTML = Math.round(output3*10)/10;
-   	
-	output4 = age * 1; // earth rotates sun  
-   	document.getElementById('outputSpan4').innerHTML = Math.round(output4*10)/10;
-   
-    output5 = age * 0; //solar system around the milky way   
-   	document.getElementById('outputSpan5').innerHTML = output5;
-     
-    output6 = age * 5840 //international space station around earth   
-   	document.getElementById('outputSpan6').innerHTML = Math.round(output6*10)/10;
-     
-    output7 = age * 2.3796 // solar eclipeses/year 
-   	document.getElementById('outputSpan7').innerHTML = Math.round(output7*10)/10;
-   	}   
+	    outputeight = age * 0.006; //how many years you've been alive on Neptune
+	    document.getElementById('outputSpaneight').innerHTML = Math.round(outputeight*10)/10;
+	        
+	    output3 = age * 365; // earth around sun  
+	   	document.getElementById('outputSpan3').innerHTML = Math.round(output3*10)/10;
+	   	
+		output4 = age * 1; // earth rotates sun  
+	   	document.getElementById('outputSpan4').innerHTML = Math.round(output4*10)/10;
+	   
+	    output5 = age * 0; //solar system around the milky way   
+	   	document.getElementById('outputSpan5').innerHTML = output5;
+	     
+	    output6 = age * 5840 //international space station around earth   
+	   	document.getElementById('outputSpan6').innerHTML = Math.round(output6*10)/10;
+	     
+	    output7 = age * 2.3796 // solar eclipeses/year 
+	   	document.getElementById('outputSpan7').innerHTML = Math.round(output7*10)/10;
+	   	}   
 
    </script>
    <script type="text/javascript">
-   (function($){
-    /* Store the original positions */
-    var d1 = $('.one');
-    var d1orgtop = d1.position().top;
-    var d2 = $('.two');
-    var d2orgtop = d2.position().top;
-    var d3 = $('.three');
-    var d3orgtop = d3.position().top;
-    var d4 = $('.four');
-    var d4orgtop = d4.position().top;
-    var d5 = $('.five');
-    var d5orgtop = d5.position().top;
-    var d6 = $('.six');
-    var d6orgtop = d6.position().top;
-    var d7 = $('.seven');
-    var d7orgtop = d7.position().top;
-    var d8 = $('.eight');
-    var d8orgtop = d8.position().top;
-    var d9 = $('.nine');
-    var d9orgtop = d9.position().top;
-    var d10 = $('.ten');
-    var d10orgtop = d10.position().top;
-    
-    /* respond to the scroll event */
-    $(window).scroll(function(){
-        /* get the current scroll position */
-        var st = $(window).scrollTop();
+		   (function($){
+		    /* Store the original positions */
+		    var d1 = $('.one');
+		    var d1orgtop = d1.position().top;
+		    var d2 = $('.two');
+		    var d2orgtop = d2.position().top;
+		    var d3 = $('.three');
+		    var d3orgtop = d3.position().top;
+		    var d4 = $('.four');
+		    var d4orgtop = d4.position().top;
+		    var d5 = $('.five');
+		    var d5orgtop = d5.position().top;
+		    var d6 = $('.six');
+		    var d6orgtop = d6.position().top;
+		    var d7 = $('.seven');
+		    var d7orgtop = d7.position().top;
+		    var d8 = $('.eight');
+		    var d8orgtop = d8.position().top;
+		    var d9 = $('.nine');
+		    var d9orgtop = d9.position().top;
+		    var d10 = $('.ten');
+		    var d10orgtop = d10.position().top;
+		    
+		    /* respond to the scroll event */
+		    $(window).scroll(function(){
+		        /* get the current scroll position */
+		        var st = $(window).scrollTop();
 
-        /* change classes based on section positions */
-        if (st >= d1orgtop) {
-            d1.addClass('latched');
-        } else {
-            d1.removeClass('latched');
-        }
-        if (st >= d2orgtop) {
-            d2.addClass('latched');
-        } else {
-            d2.removeClass('latched');
-        }
-        if (st >= d3orgtop) {
-            d3.addClass('latched');
-        } else {
-            d3.removeClass('latched');
-        }
-        if (st >= d4orgtop) {
-            d4.addClass('latched');
-        } else {
-            d4.removeClass('latched');
-        }
-        if (st >= d5orgtop) {
-            d5.addClass('latched');
-        } else {
-            d5.removeClass('latched');
-        }
-        if (st >= d6orgtop) {
-            d6.addClass('latched');
-        } else {
-            d6.removeClass('latched');
-        }
-        if (st >= d7orgtop) {
-            d7.addClass('latched');
-        } else {
-            d7.removeClass('latched');
-        }
-        if (st >= d8orgtop) {
-            d8.addClass('latched');
-        } else {
-            d8.removeClass('latched');
-        }
-        if (st >= d9orgtop) {
-            d9.addClass('latched');
-        } else {
-            d9.removeClass('latched');
-        }
-    });
+		        /* change classes based on section positions */
+		        if (st >= d1orgtop) {
+		            d1.addClass('latched');
+		        } else {
+		            d1.removeClass('latched');
+		        }
+		        if (st >= d2orgtop) {
+		            d2.addClass('latched');
+		        } else {
+		            d2.removeClass('latched');
+		        }
+		        if (st >= d3orgtop) {
+		            d3.addClass('latched');
+		        } else {
+		            d3.removeClass('latched');
+		        }
+		        if (st >= d4orgtop) {
+		            d4.addClass('latched');
+		        } else {
+		            d4.removeClass('latched');
+		        }
+		        if (st >= d5orgtop) {
+		            d5.addClass('latched');
+		        } else {
+		            d5.removeClass('latched');
+		        }
+		        if (st >= d6orgtop) {
+		            d6.addClass('latched');
+		        } else {
+		            d6.removeClass('latched');
+		        }
+		        if (st >= d7orgtop) {
+		            d7.addClass('latched');
+		        } else {
+		            d7.removeClass('latched');
+		        }
+		        if (st >= d8orgtop) {
+		            d8.addClass('latched');
+		        } else {
+		            d8.removeClass('latched');
+		        }
+		        if (st >= d9orgtop) {
+		            d9.addClass('latched');
+		        } else {
+		            d9.removeClass('latched');
+		        }
+		    });
 
-})(window.jQuery);
-   </script>
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher: "28f916ea-b927-4e1c-b645-b4b7a4227217", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script> 
-<!-- </body> -->
-
-</script>
-  
+		})(window.jQuery);
+   </script>   
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "28f916ea-b927-4e1c-b645-b4b7a4227217", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>   
 </body>
 </html>
 
